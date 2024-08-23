@@ -1,0 +1,46 @@
+{
+  "xsappname": "node-hello-world",
+  "tenant-mode": "shared",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Display",
+      "description": "display"
+    },
+    {
+      "name": "$XSAPPNAME.Edit",
+      "description": "edit"
+    },
+    {
+      "name": "$XSAPPNAME.Delete",
+      "description": "delete"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "View Users",
+      "scope-references": [
+        "$XSAPPNAME.Display"
+      ]
+    },
+    {
+      "name": "Manager",
+      "description": "Maintain Users",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "$XSAPPNAME.Update"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "UserManagerRC",
+      "description": "User Manager Role Collection",
+      "role-template-references": [
+        "$XSAPPNAME.Viewer",
+        "$XSAPPNAME.Manager"
+      ]
+    }
+  ],
+  "attributes": []
+}
